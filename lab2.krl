@@ -19,12 +19,8 @@ ruleset lab2 {
         select when pageview ".*" setting()        
         pre {
               query = page:url("query");
-	      getName = function(n) {
-		x = n.extract(#name=(\w*)#);
-		x[0] || "Monkey";
-	      }
-	      //x = query.extract(#name=(\w*)#);
-	      name = getName(query);   // x[0] || "Monkey";
+	      x = query.extract(#name=(\w*)#);
+	      name = x[0] || "Monkey";
         }
 	notify("Hello " + name, "") with position="bottom-right" and sticky = true;
     }
