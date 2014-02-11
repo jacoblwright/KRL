@@ -24,7 +24,21 @@ ruleset lab2 {
         }
 	notify("Hello " + name, "") with position="bottom-right" and sticky = true;
     }
-    rule third_rule {
+    rule fourth_rule {
+        select when pageview ".*" setting()
+        pre {
+                query = page:url("query");
+                x = query.extract(#clear=(\w*)#);
+                clr = x[0] || "0";
+                one = "1";
+        }
+        if(clr eq one) then
+                notify("Count has been cleared", "");
+        fired {
+                clear ent:pageCount;
+        }
+    } 
+   rule third_rule {
         select when pageview ".*" setting()
 	pre {
 	    count = ent:pageCount + 1;
@@ -34,19 +48,5 @@ ruleset lab2 {
    	fired {
 		ent:pageCount += 1 from 1;
 	}
-    }
-    rule fourth_rule {
-	select when pageview ".*" setting()
-	pre {
-		query = page:url("query");
-		x = query.extract(#clear=(\w*)#);
-		clr = x[0] || "0";
-		one = "1";
-	}
-	if(clr eq one) then
-		notify("Count has been cleared", "");
-	fired {
-		clear ent:pageCount;
-   	}
     }
 }
