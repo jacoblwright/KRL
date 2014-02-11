@@ -20,9 +20,8 @@ ruleset lab2 {
         pre {
               query = page:url("query");
 	      empty = "";
-	      str = "hello " + query;
         }
 //        if query != empty then
-		notify("hello", query) with position="bottom-left" and sticky = true;
+		notify("hello", "world") with position="bottom-left" and sticky = true;
     }
 }
