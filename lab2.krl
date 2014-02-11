@@ -12,7 +12,7 @@ ruleset lab2 {
 	every {
        	 // Display notification that will not fade.
        	  notify("First Notification", "CS 462") with position="top-left" and sticky = true;
-       	  notify("Second Notification", "CS 462") with position="top-right" and sticky = true;
+       	  notify("Second Notification", "CS 462") with position="top-left" and sticky = true;
         }
     }
     rule second_rule {
