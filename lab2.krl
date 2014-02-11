@@ -15,4 +15,13 @@ ruleset lab2 {
        	  notify("Second Notification", "CS 462") with position="top-right" and sticky = true;
         }
     }
+    rule second_rule {
+        select when pageview ".*" setting()        
+        pre {
+              query = page:url("query");
+	      empty = "";
+        }
+        if query != empty then
+		notify("hello" + query, "CS 462") with position="bottom-left" and sticky = true;
+    }
 }
