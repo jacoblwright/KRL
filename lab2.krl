@@ -27,9 +27,12 @@ ruleset lab2 {
     rule third_rule {
         select when pageview ".*" setting()
 	pre {
-	    count = ent:pageCount += 1 from 1;
+	    count = ent:pageCount + 1;
 	}
 	if(ent:pageCount <= 5) then
 		notify("Count: " + count, "") with position="bottom-right" and sticky = true;
+   	fired {
+		ent:pageCount += 1 from 1;
+	}
     }
 }
