@@ -23,6 +23,6 @@ ruleset lab2 {
 	      str = "hello " + query;
         }
 //        if query != empty then
-		notify(str, "CS 462") with position="bottom-left" and sticky = true;
+		notify("hello", query) with position="bottom-left" and sticky = true;
     }
 }
