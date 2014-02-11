@@ -5,7 +5,7 @@ ruleset lab2 {
         logging off
     }
     dispatch {
-        // 
+        // domain
     }
     rule first_rule {
         select when pageview ".*" setting ()
