@@ -18,8 +18,9 @@ ruleset lab2 {
     rule second_rule {
         select when pageview ".*" setting()        
         pre {
-              query = page:url("query") || "Monkey";
-	      
+              query = page:url("query");// || "Monkey";
+	      x = query.extract(#name=(\w*)#);
+	      name = x[0] || "Monkey";
         }
 	notify("hello " + query, "") with position="bottom-right" and sticky = true;
     }
