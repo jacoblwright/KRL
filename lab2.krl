@@ -20,7 +20,13 @@ ruleset lab2 {
         pre {
               query = page:url("query");
 	      x = query.extract(#name=(\w*)#);
-	      name = x[0] || "Monkey";
+	      putMonkeyIfEmpty = function(p) {
+					name = p[0];
+					empty = "";
+					(name eq empty) => "Monkey" |
+								name;
+				};
+	      name = putMonkeyIfEmpty(x);// x[0] || "Monkey";
         }
 	notify("Hello " + name, "") with position="bottom-right" and sticky = true;
     }
