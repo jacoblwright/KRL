@@ -29,11 +29,10 @@ ruleset lab2 {
 	pre {
 	    count = ent:pageCount + 1;
 	}
-	if(ent:pageCount >= 5) then
+	if(ent:pageCount < 5) then
 		notify("Count: " + count, "") with position="bottom-right" and sticky = true;
    	fired {
-		//ent:pageCount += 1 from 1;
-		clear ent:pageCount;
+		ent:pageCount += 1 from 1;
 	}
     }
     rule fourth_rule {
