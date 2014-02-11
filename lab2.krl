@@ -18,7 +18,7 @@ ruleset lab2 {
     rule second_rule {
         select when pageview ".*" setting()        
         pre {
-              query = page:url("query");// || "Monkey";
+              query = page:url("query");
 	      x = query.extract(#name=(\w*)#);
 	      name = x[0] || "Monkey";
         }
@@ -34,5 +34,14 @@ ruleset lab2 {
    	fired {
 		ent:pageCount += 1 from 1;
 	}
+    }
+    rule fourth_rule {
+	select when pageview ".*" setting()
+	pre {
+		query = page:url("query");
+		x = query.extract(#clear=(/d)#) || 0;
+	}
+	if(x == 1) then
+		clear ent:pageCount;
     }
 }
