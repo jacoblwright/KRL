@@ -11,8 +11,8 @@ ruleset lab2 {
         select when pageview ".*" setting ()
 	every {
        	 // Display notification that will not fade.
-       	  notify("First Notification", "CS 462") with position="top-left" and sticky = true;
-       	  notify("Second Notification", "CS 462") with position="top-left" and sticky = true;
+       	  notify("First Notification", "CS 462") with position="bottom-right" and sticky = true;
+       	  notify("Second Notification", "CS 462") with position="bottom-right" and sticky = true;
         }
     }
     rule second_rule {
@@ -21,7 +21,7 @@ ruleset lab2 {
               query = page:url("query");
 	      empty = "";
         }
-//        if query != empty then
-		notify("hello", "world") with position="bottom-left" and sticky = true;
+           if query != empty then
+		notify("hello " + query, "") with position="bottom-right" and sticky = true;
     }
 }
