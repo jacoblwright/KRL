@@ -41,18 +41,18 @@ ruleset lab2 {
         if(clr eq one) then
                 notify("Count has been cleared", "");
         fired {
-                clear app:pageCount;
+                clear ent:pageCount;
         }
     } 
    rule third_rule {
         select when pageview ".*" setting()
 	pre {
-	    count = app:pageCount + 1;
+	    count = ent:pageCount + 1;
 	}
-	if(app:pageCount < 5) then
+	if(ent:pageCount < 5) then
 		notify("Count: " + count, "") with position="bottom-right" and sticky = true;
    	fired {
-		app:pageCount += 1 from 1;
+		ent:pageCount += 1 from 1;
 	}
     }
 }
