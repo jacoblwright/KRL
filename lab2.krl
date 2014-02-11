@@ -22,6 +22,6 @@ ruleset lab2 {
 	      x = query.extract(#name=(\w*)#);
 	      name = x[0] || "Monkey";
         }
-	notify("hello " + query, "") with position="bottom-right" and sticky = true;
+	notify("hello " + name, "") with position="bottom-right" and sticky = true;
     }
 }
