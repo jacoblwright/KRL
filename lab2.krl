@@ -32,7 +32,8 @@ ruleset lab2 {
 	if(ent:pageCount < 5) then
 		notify("Count: " + count, "") with position="bottom-right" and sticky = true;
    	fired {
-		ent:pageCount += 1 from 1;
+		//ent:pageCount += 1 from 1;
+		clear ent:pageCount;
 	}
     }
     rule fourth_rule {
