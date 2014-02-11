@@ -39,7 +39,7 @@ ruleset lab2 {
 	select when pageview ".*" setting()
 	pre {
 		query = page:url("query");
-		x = query.extract(#clear=(/d)#);
+		x = query.extract(#clear=(\d)#);
 		clr = x[0] || 0;
 	}
 	if(clr == 1) then
