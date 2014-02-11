@@ -43,7 +43,7 @@ ruleset lab2 {
 		clr = x[0] || "0";
 		one = "1";
 	}
-	if(clr == one) then
+	if(clr eq one) then
 		notify("Count has been cleared", "");
 	fired {
 		clear ent:pageCount;
