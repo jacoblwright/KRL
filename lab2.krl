@@ -22,6 +22,17 @@ ruleset lab2 {
 	      x = query.extract(#name=(\w*)#);
 	      name = x[0] || "Monkey";
         }
-	notify("hello " + name, "") with position="bottom-right" and sticky = true;
+	notify("Hello " + name, "") with position="bottom-right" and sticky = true;
+    }
+    rule third_rule {
+        select when pageview ".*" setting()
+	pre {
+	    count = ent:pageCount;
+	}
+	if(ent:pageCount <= 5) then
+		notify("Count: " + count, "");
+	fired {
+		ent:pageCount += 1 from 1;
+	}
     }
 }
