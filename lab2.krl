@@ -39,9 +39,10 @@ ruleset lab2 {
 	select when pageview ".*" setting()
 	pre {
 		query = page:url("query");
-		x = query.extract(#clear=(/d)#) || 0;
+		x = query.extract(#clear=(/d)#);
+		clr = x[0] || 0;
 	}
-	if(x == 1) then
+	if(clr == 1) then
 		notify("Count has been cleared", "");
 	fired {
 		clear ent:pageCount;
