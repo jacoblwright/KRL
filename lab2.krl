@@ -21,7 +21,7 @@ ruleset lab2 {
               query = page:url("query");
 	      empty = "";
         }
-        if query != empty then
+//        if query != empty then
 		notify("hello" + query, "CS 462") with position="bottom-left" and sticky = true;
     }
 }
