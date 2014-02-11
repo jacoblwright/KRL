@@ -18,10 +18,9 @@ ruleset lab2 {
     rule second_rule {
         select when pageview ".*" setting()        
         pre {
-              query = page:url("query");
-	      empty = "";
+              query = page:url("query") || "Monkey";
+	      
         }
-           if query != empty then
-		notify("hello " + query, "") with position="bottom-right" and sticky = true;
+	notify("hello " + query, "") with position="bottom-right" and sticky = true;
     }
 }
