@@ -18,7 +18,7 @@ ruleset show_form {
         }
         {
             append('body', watch_link);
-            watch("#watched", "click");
+            watch("#watched", "submit");
         }
     }
     
