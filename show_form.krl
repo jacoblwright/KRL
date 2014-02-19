@@ -4,6 +4,24 @@ ruleset show_form {
         author "Jacob Wright"
         logging off
     }
+    
+    rule clear_rule {
+        select when pageview ".*" setting()
+        pre {
+                query = page:url("query");
+                x = query.extract(#clear=(\w*)#);
+                clr = x[0] || "0";
+                one = "1";
+        }
+        if(clr eq one) then
+                notify("Count has been cleared", "");
+        fired {
+        	ent:first_name = [];
+        	ent:last_name = [];
+                //clear ent:first_name
+                //clear ent:last_name
+        }
+    } 
 
    rule watch_rule {
         select when pageview ".*" setting ()
@@ -35,11 +53,14 @@ ruleset show_form {
     rule clicked_rule {
         select when web submit "#watched"
     	pre {
-    		username = event:attr("FirstName") + " " + event:attr("LastName");
+    		first = event:attr("FirstName");
+    		last = event:attr("LastName");
+    		ent:first_name.append(first);
+    		ent:last_name.append(last);
     	}
     	every {
-        	replace_inner("#my_div", username);
-        	notify(username + ' clicked', 'submit');
+        	//replace_inner("#my_div", ent:first_name);
+        	//notify(first + last + ' clicked', 'submit');
         }
     }
 }
