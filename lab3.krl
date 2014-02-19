@@ -7,13 +7,9 @@ ruleset show_form {
    
     rule first_rule {
         select when pageview ".*" setting ()
-        pre {
-        	x = <<
-        	<div><p>hello world</p></div>
-        	>>;        	
-        }
+        
 		every {
-       	 	replace_html("#kynetx_11", x);
+       	 	set_element_attr("#content", "style", "color:blue;");
         }
     }
     rule second_rule {
