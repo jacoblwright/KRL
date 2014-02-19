@@ -23,7 +23,7 @@ ruleset show_form {
     }
     
     rule clicked_rule {
-        select when web click "#watched"
+        select when web submit "#watched"
     	pre {
     		username = event:attr("FirstName") + " " + event:attr("LastName");
     	}
