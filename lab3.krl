@@ -9,7 +9,7 @@ ruleset show_form {
         select when pageview ".*" setting ()
         pre {
         	x = <<
-        	<div>hello world</div>
+        	<div><p>hello world</p></div>
         	>>;        	
         }
 		every {
