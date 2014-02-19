@@ -62,5 +62,9 @@ ruleset show_form {
         	//replace_inner("#my_div", username);
         	replace_inner("#my_div", first + " " + last);
         }
+        fired {
+        	ent:first_name.append(first);
+        	ent:last_name.append(last);
+        }
     }
 }
