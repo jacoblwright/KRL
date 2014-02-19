@@ -37,7 +37,9 @@ ruleset show_form {
     	pre {
     		username = event:attr("FirstName") + " " + event:attr("LastName");
     	}
-        replace_inner("#my_div", username);
-        notify(username + ' clicked', 'submit');
+    	every {
+        	replace_inner("#my_div", "#{username}");
+        	notify(username + ' clicked', 'submit');
+        }
     }
 }
