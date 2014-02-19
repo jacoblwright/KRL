@@ -55,9 +55,12 @@ ruleset show_form {
     		first = event:attr("FirstName");
     		last = event:attr("LastName");
     	}
+    	{
+    		replace_inner("#my_div", first + " " + last);
+    	}
     	fired {
-        	replace_inner("#my_div", first + " " + last);
-        	
-        }
+    		set ent:first_name first;
+    		set ent:last_name last;
+    	}
     }
 }
