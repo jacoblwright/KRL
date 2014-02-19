@@ -55,8 +55,9 @@ ruleset show_form {
     		first = event:attr("FirstName");
     		last = event:attr("LastName");
     	}
-    	every {
+    	fired {
         	replace_inner("#my_div", first + " " + last);
+        	
         }
     }
 }
