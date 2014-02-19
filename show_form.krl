@@ -14,7 +14,7 @@ ruleset show_form {
                 one = "1";
         }
         if(clr eq one) then
-                notify("Count has been cleared", "");
+                notify("first and last name cleared", "");
         fired {
                 clear ent:first_name;
                 clear ent:last_name;
@@ -43,11 +43,10 @@ ruleset show_form {
 		pre {
 			f = ent:first_name;
 			l = ent:last_name;
-			html_div = << <div id="my_div"></div> >>;
+			html_div = << <div id="my_div">#{f} #{l}</div> >>;
 		}
 		every {
 			append('body', html_div);
-			notify(f + l, "");
 		}
 	}
     
