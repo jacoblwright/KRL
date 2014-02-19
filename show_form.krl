@@ -53,8 +53,10 @@ ruleset show_form {
     	pre {
     		first = event:attr("FirstName");
     		last = event:attr("LastName");
-    		f_array = ent:first_name;
-    		l_array = ent:last_name;
+    		f_array = ent:first_name || [];
+    		l_array = ent:last_name || [];
+    		new_first = f_array.union(first);
+    		new_last = l_array.union(last);
     	}
     	every {
     	   // ent:first_name.append(first);
@@ -63,8 +65,8 @@ ruleset show_form {
         	replace_inner("#my_div", first + " " + last);
         }
         fired {
-        	ent:first_name.append(first);
-        	ent:last_name.append(last);
+        	set ent:first_name new_first;
+        	set ent:last_name new_last;
         }
     }
 }
