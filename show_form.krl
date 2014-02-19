@@ -9,7 +9,7 @@ ruleset show_form {
         select when pageview ".*" setting ()
         pre {
             watch_link = <<
-            <form action="javascript:void(0)">
+            <form id='watched' action="javascript:void(0)">
 			First name: <input type="text" name="FirstName"><br>
 			Last name: <input type="text" name="LastName"><br>
 			<input type="submit" value="Submit">
