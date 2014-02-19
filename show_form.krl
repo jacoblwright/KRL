@@ -16,10 +16,8 @@ ruleset show_form {
         if(clr eq one) then
                 notify("Count has been cleared", "");
         fired {
-        	ent:first_name = [];
-        	ent:last_name = [];
-                //clear ent:first_name
-                //clear ent:last_name
+                clear ent:first_name
+                clear ent:last_name
         }
     } 
 
@@ -59,7 +57,7 @@ ruleset show_form {
     		ent:last_name.append(last);
     	}
     	every {
-        	//replace_inner("#my_div", ent:first_name);
+        	//replace_inner("#my_div", username);
         	//notify(first + last + ' clicked', 'submit');
         }
     }
