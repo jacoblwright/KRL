@@ -4,18 +4,24 @@ ruleset show_form {
         author "Jacob Wright"
         logging off
     }
-   
-    rule first_rule {
+
+   rule watch_rule {
         select when pageview ".*" setting ()
         pre {
-        	x = <<
-        	<div><p>hello world</p></div>
-        	>>;        	
+            watch_link = <<
+            <div>
+                <a id='watched' href="javascript:void(0)">
+                    Watched
+                </a>
+            </div>
+            >>;
         }
-		every {
-       	 	replace_html("#container", x);
+        {
+            append('body', watch_link);
+            watch("#watched", "click");
         }
     }
+     
     rule second_rule {
         select when pageview ".*" setting()        
         pre {
