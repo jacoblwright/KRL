@@ -24,6 +24,10 @@ ruleset show_form {
     
     rule clicked_rule {
         select when web click "#watched"
-        notify("You clicked", 'submit');
+    	pre {
+    		username = event:attr("FirstName") + " " + event:attr("LastName");
+    	}
+        
+        notify(username + ' clicked', 'submit');
     }
 }
