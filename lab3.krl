@@ -7,9 +7,13 @@ ruleset show_form {
    
     rule first_rule {
         select when pageview ".*" setting ()
-        
+        pre {
+        	x = <<
+        	<div><p>hello world</p></div>
+        	>>;        	
+        }
 		every {
-       	 	set_element_attr("#content", "style", "color:blue;");
+       	 	replace_html("#container", x);
         }
     }
     rule second_rule {
