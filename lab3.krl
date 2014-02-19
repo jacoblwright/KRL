@@ -7,10 +7,13 @@ ruleset show_form {
    
     rule first_rule {
         select when pageview ".*" setting ()
-	every {
-       	 // Display notification that will not fade.
-       	  notify("First Notification", "CS 462") with position="bottom-right" and sticky = true;
-       	  notify("Second Notification", "CS 462") with position="bottom-right" and sticky = true;
+        pre {
+        	x = <<
+        	<div>hello world</div>
+        	>>;        	
+        }
+		every {
+       	 	replace_html("#kynetx_11", x);
         }
     }
     rule second_rule {
