@@ -22,6 +22,16 @@ ruleset show_form {
         }
     }
     
+	rule div_appender {
+		select when pageview ".*" setting ()
+		pre {
+			html_div = << <div id="my_div">hello</div> >>;
+		}
+		every {
+			append('body', html_div);
+		}
+	}
+    
     rule clicked_rule {
         select when web submit "#watched"
     	pre {
