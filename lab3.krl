@@ -10,9 +10,7 @@ ruleset show_form {
         pre {
             watch_link = <<
             <div>
-                <a id='watched' href="javascript:void(0)">
-                    Watched
-                </a>
+                Hello World!
             </div>
             >>;
         }
