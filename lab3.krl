@@ -1,4 +1,4 @@
-ruleset lab2 {
+ruleset show_form {
     meta {
         name "lab 3"
         author "Jacob Wright"
