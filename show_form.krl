@@ -41,6 +41,7 @@ ruleset show_form {
 	rule div_appender {
 		select when pageview ".*" setting ()
 		pre {
+			
 			html_div = << <div id="my_div"></div> >>;
 		}
 		every {
@@ -55,14 +56,7 @@ ruleset show_form {
     		last = event:attr("LastName");
     	}
     	every {
-    	   // ent:first_name.append(first);
-    		//ent:last_name.append(last);
-        	//replace_inner("#my_div", username);
         	replace_inner("#my_div", first + " " + last);
-        }
-        fired {
-        	ent:first_name = first;
-        	ent:last_name = last;
         }
     }
 }
