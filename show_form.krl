@@ -41,8 +41,8 @@ ruleset show_form {
 	rule div_appender {
 		select when pageview ".*" setting ()
 		pre {
-			f = ent:first_name;
-			l = ent:last_name;
+			f = ent:first_name || "";
+			l = ent:last_name || "";
 			html_div = << <div id="my_div">#{f} #{l}</div> >>;
 		}
 		every {
