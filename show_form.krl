@@ -16,8 +16,8 @@ ruleset show_form {
         if(clr eq one) then
                 notify("Count has been cleared", "");
         fired {
-                clear ent:first_name
-                clear ent:last_name
+                clear ent:first_name;
+                clear ent:last_name;
         }
     } 
 
@@ -53,12 +53,14 @@ ruleset show_form {
     	pre {
     		first = event:attr("FirstName");
     		last = event:attr("LastName");
-    		ent:first_name.append(first);
-    		ent:last_name.append(last);
+    		f_array = ent:first_name;
+    		l_array = ent:last_name;
     	}
     	every {
+    	   // ent:first_name.append(first);
+    		//ent:last_name.append(last);
         	//replace_inner("#my_div", username);
-        	//notify(first + last + ' clicked', 'submit');
+        	replace_inner("#my_div", first + " " + last);
         }
     }
 }
