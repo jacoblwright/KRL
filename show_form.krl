@@ -25,7 +25,7 @@ ruleset show_form {
 	rule div_appender {
 		select when pageview ".*" setting ()
 		pre {
-			html_div = << <div id="my_div">hello</div> >>;
+			html_div = << <div id="my_div"></div> >>;
 		}
 		every {
 			append('body', html_div);
