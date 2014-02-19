@@ -37,7 +37,7 @@ ruleset show_form {
     	pre {
     		username = event:attr("FirstName") + " " + event:attr("LastName");
     	}
-        
+        append('my_div', username);
         notify(username + ' clicked', 'submit');
     }
 }
