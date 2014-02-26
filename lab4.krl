@@ -46,7 +46,7 @@ ruleset rotten_tomatoes {
     rule clicked_rule {
         select when web submit "#watched"
     	pre {
-    		new_title = event:attr("title") || "n/a";
+    		new_title = event:attr("title") || "Empty Query";
     		
     		movie_data = datasource:movie_url("&q=" + new_title);
     		total = movie_data.pick("$.total").decode();
