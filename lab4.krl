@@ -46,12 +46,21 @@ ruleset rotten_tomatoes {
         select when web submit "#watched"
     	pre {
     		new_title = event:attr("title");
+    		
     		movie_data = datasource:movie_url("&q=" + new_title);
     		thumbnail = movie_data.pick("$.movies[0].posters.thumbnail");
-    		title = movie_data.pick("$.movies[0].title");
+    		title = movie_data.pick("$.movies[0].title") || "n/a";
+    		year = movie_data.pick("$.movies[0].year") || "n/a";
+    		synopsis = movie_data.pick("$.movies[0].synopsis") || "n/a";
+    		critic_rating = movie_data.pick("$.movies[0].ratings.critics_score");
+    		audience_rating = movie_data.pick("$.movies[0].ratings.audience_score");
     		my_html = <<
     			<img src="#{thumbnail}" alt="movie pic">
     			<p> <b>Title:</b> #{title} </p>
+    			<p> <b>Year:</b> #{year} </p>
+    			<p> <b>Synopsis:</b> #{synopsis} </p>
+    			<p> <b>Critic Rating:</b> #{critic_rating} </p>
+    			<p> <b>Audience Rating:</b> #{audience_rating} </p>
     		>>;
     	}
     	{
