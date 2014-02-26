@@ -16,6 +16,7 @@ ruleset rotten_tomatoes {
         pre {
             watch_link = <<
             <div id=rotten>
+            <b>SEARCH</b>
             <form id='watched' action="javascript:void(0)">
 			Movie Title: <input type="text" name="title"><br>
 			<input type="submit" value="Submit">
