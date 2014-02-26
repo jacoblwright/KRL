@@ -8,8 +8,7 @@ ruleset rotten_tomatoes {
     }
     
     global {
-    	//datasource movie_url <- "http://    " // add info here
-    }
+    	datasource movie_url <- "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=8j3zn2knpjn27xsrm6g6g3mz";
 
    rule watch_rule {
         select when web cloudAppSelected
@@ -46,9 +45,10 @@ ruleset rotten_tomatoes {
         select when web submit "#watched"
     	pre {
     		new_title = event:attr("title");
+    		movie_data = datasource:movie_url("&q=" + new_title);
     	}
     	{
-    		replace_inner("#my_div", new_title);
+    		replace_inner("#my_div", movie_data);
     	}
     	fired {
     		set ent:title new_title;
