@@ -10,22 +10,6 @@ ruleset rotten_tomatoes {
     global {
     	//datasource movie_url <- "http://    " // add info here
     }
-    
-    rule clear_rule {
-        select when web cloudAppSelected
-        pre {
-                query = page:url("query");
-                x = query.extract(#clear=(\w*)#);
-                clr = x[0] || "0";
-                one = "1";
-        }
-        if(clr eq one) then
-                notify("first and last name cleared", "");
-        fired {
-                clear ent:first_name;
-                clear ent:last_name;
-        }
-    } 
 
    rule watch_rule {
         select when web cloudAppSelected
@@ -33,7 +17,7 @@ ruleset rotten_tomatoes {
             watch_link = <<
             <div id=rotten>
             <form id='watched' action="javascript:void(0)">
-			Movie Title: <input type="text" name="FirstName"><br>
+			Movie Title: <input type="text" name="title"><br>
 			<input type="submit" value="Submit">
 			</form>
 			</div>
@@ -50,8 +34,7 @@ ruleset rotten_tomatoes {
 	rule div_appender {
 		select when web cloudAppSelected
 		pre {
-			f = ent:first_name || "";
-			l = ent:last_name || "";
+			f = ent:title || "";
 			html_div = << <div id="my_div">#{f} #{l} <br /></div> >>;
 		}
 		every {
@@ -62,15 +45,13 @@ ruleset rotten_tomatoes {
     rule clicked_rule {
         select when web submit "#watched"
     	pre {
-    		first = event:attr("FirstName");
-    		last = event:attr("LastName");
+    		new_title = event:attr("title");
     	}
     	{
-    		replace_inner("#my_div", first + " " + last);
+    		replace_inner("#my_div", title);
     	}
     	fired {
-    		set ent:first_name first;
-    		set ent:last_name last;
+    		set ent:title new_title;
     	}
     }
 }
