@@ -3,6 +3,8 @@ ruleset rotten_tomatoes {
         name "lab 3"
         author "Jacob Wright"
         logging off
+        use module a169x701 alias CloudRain
+        use module a41x186  alias SquareTag
     }
     
     global {
@@ -30,14 +32,15 @@ ruleset rotten_tomatoes {
         pre {
             watch_link = <<
             <form id='watched' action="javascript:void(0)">
-			First name: <input type="text" name="FirstName"><br>
-			Last name: <input type="text" name="LastName"><br>
+			Movie Title: <input type="text" name="FirstName"><br>
 			<input type="submit" value="Submit">
 			</form>
             >>;
         }
         {
-            append('body', watch_link);
+         	SquareTag:inject_styling();
+  		 	CloudRain:createLoadPanel("Rotten Tomato", {}, watch_link);
+            //append('body', watch_link);
             watch("#watched", "submit");
         }
     }
