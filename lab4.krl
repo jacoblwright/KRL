@@ -56,7 +56,7 @@ ruleset rotten_tomatoes {
     		synopsis = movie_data.pick("$.movies[0].synopsis") || "n/a";
     		critic_rating = movie_data.pick("$.movies[0].ratings.critics_score");
     		audience_rating = movie_data.pick("$.movies[0].ratings.audience_score");
-    		consensus = movie_data.pick("$.movies[0].critics_consensus").encode || "n/a";
+    		consensus = movie_data.pick("$.movies[0].critics_consensus").encode() || "n/a";
     		my_html = <<
     			<img src="#{thumbnail}" alt="movie pic">
     			<p> <b>Title:</b> #{title} </p>
