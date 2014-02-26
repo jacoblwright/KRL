@@ -64,6 +64,7 @@ ruleset rotten_tomatoes {
     			<p> <b>Critic Rating:</b> #{critic_rating} </p>
     			<p> <b>Audience Rating:</b> #{audience_rating} </p>
     			<p> <b>Critic Consensus: </b> #{consensus} </p>
+    			<hr>
     		>>;
     	}
     	if total > 0 then
