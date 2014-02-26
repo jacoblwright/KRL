@@ -48,6 +48,7 @@ ruleset rotten_tomatoes {
     		new_title = event:attr("title");
     		
     		movie_data = datasource:movie_url("&q=" + new_title);
+    		total = movie_data.pick("$.total");
     		thumbnail = movie_data.pick("$.movies[0].posters.thumbnail");
     		title = movie_data.pick("$.movies[0].title") || "n/a";
     		year = movie_data.pick("$.movies[0].year") || "n/a";
@@ -63,9 +64,8 @@ ruleset rotten_tomatoes {
     			<p> <b>Audience Rating:</b> #{audience_rating} </p>
     		>>;
     	}
-    	{
+    	if total > 0 then
     		replace_inner("#my_div", my_html);
-    	}
     	fired {
     		set ent:title new_title;
     	}
