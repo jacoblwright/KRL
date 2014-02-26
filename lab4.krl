@@ -47,9 +47,11 @@ ruleset rotten_tomatoes {
     	pre {
     		new_title = event:attr("title");
     		movie_data = datasource:movie_url("&q=" + new_title);
+    		thumbnail = movie_data.pick("$.movies[0].posters.thumbnail");
     		title = movie_data.pick("$.movies[0].title");
     		my_html = <<
-    			<p> Title: #{title} </p>
+    			<img src="#{thumbnail}" alt="movie pic">
+    			<p> <b>Title:</b> #{title} </p>
     		>>;
     	}
     	{
