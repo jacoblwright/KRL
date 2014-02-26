@@ -52,7 +52,7 @@ ruleset rotten_tomatoes {
 		pre {
 			f = ent:first_name || "";
 			l = ent:last_name || "";
-			html_div = << <div id="my_div"><p>#{f} #{l}</p></div> >>;
+			html_div = << <div id="my_div">#{f} #{l} <br /></div> >>;
 		}
 		every {
 			prepend('#rotten', html_div);
