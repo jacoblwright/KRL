@@ -69,7 +69,7 @@ ruleset rotten_tomatoes {
     	fired {
     		set ent:title new_title;
     	} else {
-			raise explicit event 'title_not_found' with title = ent:title; 
+			raise explicit event 'title_not_found' with title = new_title; 
     	}
     }
     
