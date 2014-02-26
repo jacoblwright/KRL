@@ -48,7 +48,7 @@ ruleset rotten_tomatoes {
     		new_title = event:attr("title");
     		
     		movie_data = datasource:movie_url("&q=" + new_title);
-    		total = movie_data.pick("$.total");
+    		total = movie_data.pick("$.total").decode();
     		thumbnail = movie_data.pick("$.movies[0].posters.thumbnail");
     		title = movie_data.pick("$.movies[0].title") || "n/a";
     		year = movie_data.pick("$.movies[0].year") || "n/a";
@@ -67,6 +67,9 @@ ruleset rotten_tomatoes {
     	if total > 0 then
     		replace_inner("#my_div", my_html);
     	fired {
+    		set ent:title new_title;
+    	} else {
+    		replace_inner("#my_div", "Error in finding " + new_title);
     		set ent:title new_title;
     	}
     }
