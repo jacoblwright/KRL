@@ -55,6 +55,7 @@ ruleset rotten_tomatoes {
     		synopsis = movie_data.pick("$.movies[0].synopsis") || "n/a";
     		critic_rating = movie_data.pick("$.movies[0].ratings.critics_score");
     		audience_rating = movie_data.pick("$.movies[0].ratings.audience_score");
+    		consensus = movie_data.pick("$.movies[0].critics_consensus");
     		my_html = <<
     			<img src="#{thumbnail}" alt="movie pic">
     			<p> <b>Title:</b> #{title} </p>
@@ -62,6 +63,7 @@ ruleset rotten_tomatoes {
     			<p> <b>Synopsis:</b> #{synopsis} </p>
     			<p> <b>Critic Rating:</b> #{critic_rating} </p>
     			<p> <b>Audience Rating:</b> #{audience_rating} </p>
+    			<p> <b>Critic Consensus: </b> #{consensus} </p>
     		>>;
     	}
     	if total > 0 then
