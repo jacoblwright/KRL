@@ -48,7 +48,7 @@ ruleset rotten_tomatoes {
     		new_title = event:attr("title");
     		
     		movie_data = datasource:movie_url("&q=" + new_title);
-    		total = movie_data.pick("$.total").decode();
+    		total = movie_data.pick("$.total").decode()|| 0;
     		thumbnail = movie_data.pick("$.movies[0].posters.thumbnail");
     		title = movie_data.pick("$.movies[0].title") || "n/a";
     		year = movie_data.pick("$.movies[0].year") || "n/a";
