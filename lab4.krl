@@ -10,7 +10,7 @@ ruleset rotten_tomatoes {
     }
     
     rule clear_rule {
-        select when pageview ".*" setting()
+        select when web cloudAppSelected
         pre {
                 query = page:url("query");
                 x = query.extract(#clear=(\w*)#);
@@ -26,7 +26,7 @@ ruleset rotten_tomatoes {
     } 
 
    rule watch_rule {
-        select when pageview ".*" setting ()
+        select when web cloudAppSelected
         pre {
             watch_link = <<
             <form id='watched' action="javascript:void(0)">
@@ -43,7 +43,7 @@ ruleset rotten_tomatoes {
     }
     
 	rule div_appender {
-		select when pageview ".*" setting ()
+		select when web cloudAppSelected
 		pre {
 			f = ent:first_name || "";
 			l = ent:last_name || "";
