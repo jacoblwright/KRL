@@ -55,7 +55,7 @@ ruleset rotten_tomatoes {
 			html_div = << <div id="my_div">#{f} #{l}</div> >>;
 		}
 		every {
-			append('body', html_div);
+			append('rotten', html_div);
 		}
 	}
     
