@@ -63,16 +63,26 @@ ruleset rotten_tomatoes {
     			<p> <b>Critic Rating:</b> #{critic_rating} </p>
     			<p> <b>Audience Rating:</b> #{audience_rating} </p>
     		>>;
-    		error_html = <<
-    			<p> <b>Error in finding #{new_title}</b> </p>
-    		>>;
     	}
     	if total > 0 then
     		replace_inner("#my_div", my_html);
     	fired {
     		set ent:title new_title;
     	} else {
-    		replace_inner("#my_div", error_html);
+			raise explicit event 'title_not_found' with title = ent:title; 
+    	}
+    }
+    
+    rule title_not_found {
+    	select when explicit title_not_found
+    	pre {
+    		title = event:param("title");
+    		my_html = <<
+    			<p> <b>Error in finding #{title}</b> </p>
+    		>>;
+    	}
+    	{
+    		replace_inner("#my_div", my_html);	
     	}
     }
 }
