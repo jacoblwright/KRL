@@ -69,9 +69,8 @@ ruleset rotten_tomatoes {
     	fired {
     		set ent:title new_title;
     	}
-    	// else {
-    	//	replace_inner("#my_div", "Error in finding " + new_title);
-    	//	set ent:title new_title;
-    	//}
+    	else {
+    		replace_inner("#my_div", "Error in finding " + new_title);
+    	}
     }
 }
