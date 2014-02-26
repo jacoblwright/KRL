@@ -31,10 +31,12 @@ ruleset rotten_tomatoes {
         select when web cloudAppSelected
         pre {
             watch_link = <<
+            <div id=rotten>
             <form id='watched' action="javascript:void(0)">
 			Movie Title: <input type="text" name="FirstName"><br>
 			<input type="submit" value="Submit">
 			</form>
+			</div>
             >>;
         }
         {
