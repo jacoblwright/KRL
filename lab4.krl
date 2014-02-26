@@ -34,8 +34,8 @@ ruleset rotten_tomatoes {
 	rule div_appender {
 		select when web cloudAppSelected
 		pre {
-			f = ent:title || "";
-			html_div = << <div id="my_div">#{f} #{l} <br /></div> >>;
+			t = ent:title || "";
+			html_div = << <div id="my_div">#{t}</div> >>;
 		}
 		every {
 			prepend('#rotten', html_div);
@@ -48,7 +48,7 @@ ruleset rotten_tomatoes {
     		new_title = event:attr("title");
     	}
     	{
-    		replace_inner("#my_div", title);
+    		replace_inner("#my_div", new_title);
     	}
     	fired {
     		set ent:title new_title;
