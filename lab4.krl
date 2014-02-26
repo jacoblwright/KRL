@@ -53,7 +53,7 @@ ruleset rotten_tomatoes {
     		>>;
     	}
     	{
-    		replace_inner("#my_div", title);
+    		replace_inner("#my_div", my_html);
     	}
     	fired {
     		set ent:title new_title;
