@@ -9,6 +9,7 @@ ruleset rotten_tomatoes {
     
     global {
     	datasource movie_url <- "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=8j3zn2knpjn27xsrm6g6g3mz";
+    	}
 
    rule watch_rule {
         select when web cloudAppSelected
