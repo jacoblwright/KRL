@@ -47,9 +47,10 @@ ruleset rotten_tomatoes {
     	pre {
     		new_title = event:attr("title");
     		movie_data = datasource:movie_url("&q=" + new_title);
+    		title = movie_data.pick("$.movies[0].title");
     	}
     	{
-    		replace_inner("#my_div", movie_data);
+    		replace_inner("#my_div", title);
     	}
     	fired {
     		set ent:title new_title;
