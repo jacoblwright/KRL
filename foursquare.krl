@@ -3,7 +3,7 @@ ruleset foursquare {
   meta {
     name "foursquare"
     description <<
-      Hello World
+      foursquare
     >>
     author ""
     logging off
@@ -21,6 +21,7 @@ ruleset foursquare {
     		my_created = json_obj.pick("$.checkin.createdAt");
     	}
     	fired {
+    		notify("Checkin has occurred", "");
     		set ent:venue_name name;
     		set ent:city my_city;
     		set ent:shout my_shout;
