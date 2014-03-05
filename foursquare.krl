@@ -33,8 +33,19 @@ ruleset foursquare {
   rule foursquare_init is active {
     select when web cloudAppSelected
     pre {
-      my_html = <<
-        <div id=foursquare>Checkin:<div>
+    	name = ent:venue_name || "n/a";
+    	my_city = ent:city || "n/a";
+		my_shout = ent:shout || "n/a";
+   		my_created = ent:created || "n/a";
+        my_html = <<
+          <div id=foursquare>
+    		<ul>
+    			<li>Venue name: #{name}</li>
+    			<li>City: #{my_city}</li>
+    			<li>Shout: #{my_shout}</li>
+    			<li>Created At: #{my_created}</li>
+    		</ul>
+          <div>
       >>;
     }
     {
