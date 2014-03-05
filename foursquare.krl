@@ -13,10 +13,12 @@ ruleset foursquare {
    rule process_fs_checkin {
     	select when foursquare checkin
     	pre {
-    		name = jake;
-    		my_city = event:attr("city");
-    		my_shout = "";
-    		my_created = "";
+    		json_obj = event:attr("response");
+    	
+    		name = json_obj.pick("$.venue.name");
+    		my_city = json_obj.pick("$.venue.location.city");
+    		my_shout = json_obj.pick("$.checkin.shout");
+    		my_created = json_obj.pick("$.checkin.createdAt");
     	}
     	fired {
     		set ent:venue_name name;
