@@ -20,8 +20,10 @@ ruleset foursquare {
     		my_shout = json_obj.pick("$.checkin.shout");
     		my_created = json_obj.pick("$.checkin.createdAt");
     	}
+    	{
+    		notify("checkin has occurred", "");
+    	}
     	fired {
-    		//notify("Checkin has occurred", "");
     		set ent:venue_name name;
     		set ent:city my_city;
     		set ent:shout my_shout;
