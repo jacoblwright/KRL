@@ -39,6 +39,7 @@ ruleset foursquare {
    		my_created = ent:created || "n/a";
         my_html = <<
           <div id=foursquare>
+          	Checkin:
     		<ul>
     			<li>Venue name: #{name}</li>
     			<li>City: #{my_city}</li>
@@ -62,6 +63,7 @@ ruleset foursquare {
     		my_shout = ent:shout || "n/a";
     		my_created = ent:created || "n/a";
     		my_html = <<
+    			Checkin:
     			<ul>
     			<li>Venue name: #{name}</li>
     			<li>City: #{my_city}</li>
