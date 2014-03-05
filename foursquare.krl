@@ -13,12 +13,12 @@ ruleset foursquare {
    rule process_fs_checkin {
     	select when foursquare checkin
     	pre {
-    		json_obj = event:attr("response");
+    		json_obj = event:attr("checkin").decode();
     	
     		name = json_obj.pick("$.venue.name");
     		my_city = json_obj.pick("$.venue.location.city");
-    		my_shout = json_obj.pick("$.checkin.shout");
-    		my_created = json_obj.pick("$.checkin.createdAt");
+    		my_shout = json_obj.pick("$.shout");
+    		my_created = json_obj.pick("$.createdAt");
     	}
     	{
     		notify("checkin has occurred", "");
