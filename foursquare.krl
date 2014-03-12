@@ -30,10 +30,10 @@ ruleset foursquare {
     		notify("checkin has occurred", my_map);
     	}
     	fired {
-    		set ent:venue_name name;
-    		set ent:city my_city;
-    		set ent:shout my_shout;
-    		set ent:created my_created;
+    		//set ent:venue_name name;
+    		//set ent:city my_city;
+    		//set ent:shout my_shout;
+    		//set ent:created my_created;
     		raise pds event 'new_location_data'
     			with key = "fs_checkin"
     			and value = my_map; //do I need to add "use module ____"???
