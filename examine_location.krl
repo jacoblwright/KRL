@@ -7,8 +7,8 @@ ruleset examine_location {
     >>
     author "Jacob Wright"
     logging off
-    use module location_data
-  }
+    use module b505193x15 alias location_data
+  } 
   
   global {
   	get_location_data = function (my_key) {
