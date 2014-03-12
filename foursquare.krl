@@ -19,16 +19,24 @@ ruleset foursquare {
     		my_city = json_obj.pick("$.venue.location.city");
     		my_shout = json_obj.pick("$.shout");
     		my_created = json_obj.pick("$.createdAt");
+    		my_map = {
+    				"venue_name" : name,
+    				"city" : city,
+    				"shout" : shout,
+    				"created_at" : created
+    			};
     	}
     	{
-    		notify("checkin has occurred", "");
+    		notify("checkin has occurred", my_map);
     	}
     	fired {
     		set ent:venue_name name;
     		set ent:city my_city;
     		set ent:shout my_shout;
     		set ent:created my_created;
-    		raise explicit event 'checkin_occured';
+    		raise pds event 'new_location_data'
+    			with key = "fs_checkin"
+    			and value = my_map; //do I need to add "use module ____"???
     	}
     	
    }
