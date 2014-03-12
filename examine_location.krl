@@ -17,8 +17,7 @@ ruleset examine_location {
   }
   
   rule show_fs_location {
-  	select when pds new_location_data
-  	pre {
+	select when pageview ".*" setting ()  	pre {
   		my_map = location_data:get_location_data("fs_checkin");
   		}
   		{
