@@ -18,10 +18,11 @@ ruleset examine_location {
   
   rule show_fs_location {
 	select when pageview ".*" setting ()  	pre {
-  		my_map = location_data:get_location_data("fs_checkin");
+  			my_map = location_data:get_location_data("fs_checkin");
+  			venue = my_map{"venue_name"};
   		}
   		{
-  			notify(my_map,"") with sticky = true;
+  			notify(venue,"") with sticky = true;
   		}
   }
   
