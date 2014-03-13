@@ -31,7 +31,8 @@ ruleset foursquare {
     		new_map = a_map.put(my_map);
     	}
     	{
-    		notify("checkin has occurred", my_map);
+    		send_directive(name) with 
+    			checkin = name;
     	}
     	fired {
     		set ent:my_map new_map;

@@ -24,6 +24,10 @@ ruleset location_data {
   		my_map = ent:my_map || {};
   		new_map = my_map.put([my_key], my_value);
   		}
+  		{
+  			send_directive(my_key) with
+  				location = new_map;
+  		}
   		always {
   			set ent:my_map new_map;
   			
