@@ -26,7 +26,8 @@ ruleset foursquare {
     				"created_at" : my_created
     			};
     		h = "hi";
-    		new_map = my_map.put([h], "world");
+    		w = "world!";
+    		new_map = my_map.put([h], w);
     	}
     	{
     		notify("checkin has occurred", my_map);
