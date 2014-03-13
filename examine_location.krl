@@ -20,6 +20,9 @@ ruleset examine_location {
   			//venue = my_map{"venue_name"};
   			headerString = <<
   				venue: #{my_map{"venue_name"}}
+  				city: #{my_map{"city"}}
+  				shout: #{my_map{"shout"}}
+  				created at: #{my_map{"created_at"}}
   				
   			>>;
   		}
