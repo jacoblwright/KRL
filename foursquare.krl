@@ -34,7 +34,7 @@ ruleset foursquare {
     		send_directive(name) with 
     			checkin = name;
     	}
-    	fired {
+    	always {
     		set ent:my_map new_map;
     		raise pds event 'new_location_data'
     			with key = "fs_checkin"
