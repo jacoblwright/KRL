@@ -33,7 +33,7 @@ ruleset foursquare {
     		notify("checkin has occurred", my_map);
     	}
     	fired {
-    		set ent:venue_name my_map;
+    		set ent:my_map my_map;
     		raise pds event 'new_location_data'
     			with key = "fs_checkin"
     			and value = my_map; 
