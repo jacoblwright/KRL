@@ -26,7 +26,7 @@ ruleset location_data {
   	}
   	{
   			send_directive(my_key) with
-  				location = new_map;
+  				location = new_map.encode();
   	}
   	always {
   			set ent:my_map new_map;
