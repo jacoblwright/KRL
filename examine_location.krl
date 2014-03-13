@@ -12,36 +12,15 @@ ruleset examine_location {
     use module b505193x15 alias location_data
   } 
   
-   global {
-  	get_location_data = function (my_key) {
-  		ent:my_map{my_key} || {};
-  	};
-  }
-  
-  rule add_location_item {
-  	select when pds new_location_data
-  	pre {
-  		my_key = event:attr("key");
-  		my_value = event:attr("value");
-  		my_map = ent:my_map || {};
-  		new_map = my_map.put([my_key], my_value);
-  	}
-  	{
-  			send_directive("text") with
-  				location = "world";
-  	}
-  	always {
-  			set ent:my_map new_map;
-  			set ent:constantString "constant";
-  	}
+  global {
   }
   
   rule show_fs_location is active{
 	select when web cloudAppSelected 	
 	pre {
   			my_map = location_data:get_location_data("fs_checkin");
-  			//name = my_map{"venue_name"} || "na";
-  			name = my_map;
+  			name = my_map{"venue_name"} || "na";
+  		//	name = my_map;
   			city = my_map{"city"} || "na";
   			shout = my_map{"shout"} || "na";
   			created = my_map{"created_at"} || "na";
