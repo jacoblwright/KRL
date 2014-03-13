@@ -33,10 +33,7 @@ ruleset foursquare {
     		notify("checkin has occurred", my_map);
     	}
     	fired {
-    		set ent:venue_name my_map{"venue_name"};
-    		set ent:city my_map{"city"};
-    		set ent:shout my_map{"shout"};
-    		set ent:created new_map{"city"};//my_map{"created_at"};
+    		set ent:venue_name my_map;
     		raise pds event 'new_location_data'
     			with key = "fs_checkin"
     			and value = my_map; 
@@ -47,10 +44,10 @@ ruleset foursquare {
   rule foursquare_init is active {
     select when web cloudAppSelected
     pre {
-    	name = ent:venue_name || "n/a";
-    	my_city = ent:city || "n/a";
-		my_shout = ent:shout || "n/a";
-   		my_created = ent:created || "n/a";
+    	name = my_map{"venue_name"} || "n/a";
+    	my_city = my_map{"city"} || "n/a";
+		my_shout = my_map{"shout"} || "n/a";
+   		my_created = my_map{"created_at"} || "n/a";
         my_html = <<
           <div id=foursquare>
           	Checkin:
