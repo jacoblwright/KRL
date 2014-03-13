@@ -21,14 +21,15 @@ ruleset location_data {
   	pre {
   		my_key = event:attr("key");
   		my_value = event:attr("value");
-  		my_map = { my_key : my_value};
+  		my_map = {};
+  		new_map = my_map.put([my_key], my_value);
   	}
   	{
   			send_directive(my_key) with
-  				location = my_value;
+  				location = new_map;
   	}
   	always {
-  			set ent:my_map my_map;
+  			set ent:my_map new_map;
   	}
   }
   
