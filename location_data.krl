@@ -6,7 +6,7 @@ ruleset location_data {
       foursquare
     >>
     author "Jacob Wright"
-    logging off
+    logging on
     provides get_location_data
   }
   
