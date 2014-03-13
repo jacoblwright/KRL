@@ -21,9 +21,9 @@ ruleset foursquare {
     		my_created = json_obj.pick("$.createdAt");
     		my_map = {
     				"venue_name" : name,
-    				"city" : city,
-    				"shout" : shout,
-    				"created_at" : created
+    				"city" : my_city,
+    				"shout" : my_shout,
+    				"created_at" : my_created
     			};
     	}
     	{
