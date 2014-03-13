@@ -25,7 +25,7 @@ ruleset location_data {
   		new_map = my_map.put([my_key], my_value);
   		}
   		{
-  			send_directive("hello") with
+  			send_directive("text") with
   				location = "world";
   		}
   		always {
