@@ -12,7 +12,7 @@ ruleset location_data {
   
   global {
   	get_location_data = function (my_key) {
-  		my_value = {"venue_name":"Jake"};
+  		my_key = {"venue_name":"Jake"};
   	};
   }
   
