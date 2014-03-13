@@ -17,12 +17,16 @@ ruleset examine_location {
 	select when pageview ".*" setting ()  	
 	pre {
   			my_map = location_data:get_location_data("fs_checkin");
+  			name = my_map{"venue_name"};
+  			city = my_map{"city"};
+  			shout = my_map{"shout"};
+  			created = my_map{"created_at"};
   			//venue = my_map{"venue_name"};
   			headerString = <<
-  				venue: #{my_map{"venue_name"}}
-  				city: #{my_map{"city"}}
-  				shout: #{my_map{"shout"}}
-  				created at: #{my_map{"created_at"}}
+  				venue: #{name}
+  				city: #{city}
+  				shout: #{shout}
+  				created at: #{created}
   				
   			>>;
   		}
