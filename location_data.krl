@@ -22,10 +22,11 @@ ruleset location_data {
   		my_key = event:attr("key");
   		my_value = event:attr("value");
   		my_map = ent:my_map || {};
+  		new_map = my_map.put(my_key, my_value);
   		}
   		always {
-  			
-  			set ent:my_map my_map.put(my_key, my_value);
+  			//send_directive("text") with body = my_map{"venue_name"};
+  			set ent:my_map new_map;
   		}
   }
   
