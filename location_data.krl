@@ -22,7 +22,7 @@ ruleset location_data {
   		my_key = event:attr("key");
   		my_value = event:attr("value");
   		my_map = ent:my_map || {};
-  		new_map = my_map.put(my_key, my_value);
+  		new_map = my_map.put([my_key], my_value);
   		}
   		{
   			notify(my_key, "");
