@@ -24,9 +24,12 @@ ruleset location_data {
   		my_map = ent:my_map || {};
   		new_map = my_map.put(my_key, my_value);
   		}
+  		{
+  			notify(my_key, "");
+  		}
   		always {
-  			//send_directive("text") with body = my_map{"venue_name"};
   			set ent:my_map new_map;
+  			
   		}
   }
   
