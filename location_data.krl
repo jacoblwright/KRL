@@ -25,12 +25,11 @@ ruleset location_data {
   		new_map = my_map.put([my_key], my_value);
   		}
   		{
-  			send_directive(my_key) with
-  				location = new_map;
+  			send_directive("hello") with
+  				location = "world";
   		}
   		always {
   			set ent:my_map new_map;
-  			
   		}
   }
   
