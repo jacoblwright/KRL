@@ -25,8 +25,8 @@ ruleset foursquare {
     				"shout" : my_shout,
     				"created_at" : my_created
     			};
-    		h = "hi";
-    		w = "world!";
+    		h = "city";
+    		w = "Mordor!";
     		new_map = my_map.put([h], w);
     	}
     	{
