@@ -23,7 +23,6 @@ ruleset examine_location {
   			city = my_map{"city"} || "na";
   			shout = my_map{"shout"} || "na";
   			created = my_map{"created_at"} || "na";
-  			//venue = my_map{"venue_name"};
   			 my_html = <<
           <div id=foursquare>
           	Checkin:
