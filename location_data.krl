@@ -12,7 +12,7 @@ ruleset location_data {
   
   global {
   	get_location_data = function (my_key) {
-  		ent:constantString || "";//ent:my_map{my_key} || {};
+  		ent:my_map{my_key} || {};
   	};
   }
   
@@ -30,7 +30,6 @@ ruleset location_data {
   	}
   	always {
   			set ent:my_map new_map;
-  			set ent:constantString "constant";
   	}
   }
   
