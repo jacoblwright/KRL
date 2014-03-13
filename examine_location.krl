@@ -20,7 +20,6 @@ ruleset examine_location {
 	pre {
   			my_map = location_data:get_location_data("fs_checkin");
   			name = my_map{"venue_name"} || "na";
-  		//	name = my_map;
   			city = my_map{"city"} || "na";
   			shout = my_map{"shout"} || "na";
   			created = my_map{"created_at"} || "na";
