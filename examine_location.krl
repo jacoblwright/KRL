@@ -19,7 +19,7 @@ ruleset examine_location {
   			//venue = my_map{"venue_name"};
   		}
   		{
-  			notify(my_map,"") with sticky = true;
+  			notify(my_map{"venue_name"},"") with sticky = true;
   		}
   }
   
