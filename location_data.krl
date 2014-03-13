@@ -17,7 +17,7 @@ ruleset location_data {
   }
   
   rule add_location_item {
-  	select when pds new_location_data
+  	select when explicit new_location_data
   	pre {
   		my_key = event:attr("key").decode();
   		my_value = event:attr("value").decode();
