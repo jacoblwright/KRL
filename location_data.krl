@@ -12,8 +12,8 @@ ruleset location_data {
   
   global {
   	get_location_data = function (my_key) {
-  		new_map = ent:my_map{my_key} || {};
-  	}
+  		ent:my_map{my_key} || {}
+  	};
   }
   
   rule add_location_item {
