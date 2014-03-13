@@ -25,9 +25,7 @@ ruleset foursquare {
     				"shout" : my_shout,
     				"created_at" : my_created
     			};
-    		h = "hello";
-    		w = "world";
-    		new_map = my_map.put(h, w);
+    		h = "created_at";
     	}
     	{
     		notify("checkin has occurred", my_map);
@@ -36,7 +34,7 @@ ruleset foursquare {
     		set ent:venue_name my_map{"venue_name"};
     		set ent:city my_map{"city"};
     		set ent:shout my_map{"shout"};
-    		set ent:created new_map.values(h);//{h};//my_map{"created_at"};
+    		set ent:created my_map{h};
     		raise pds event 'new_location_data'
     			with key = "fs_checkin"
     			and value = my_map; 
