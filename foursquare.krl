@@ -67,26 +67,4 @@ ruleset foursquare {
       CloudRain:createLoadPanel("Foursquare", {}, my_html);
     }
   }
-  
-  rule display_checkin {
-    	select when explicit checkin_occured
-    	pre {
-    		name = my_map{"venue_name"} || "n/a";
-    		my_city = my_map{"city"} || "n/a";
-			my_shout = my_map{"shout"} || "n/a";
-   			my_created = my_map{"created_at"} || "n/a";
-    		my_html = <<
-    			Checkin:
-    			<ul>
-    			<li>Venue name: #{name}</li>
-    			<li>City: #{my_city}</li>
-    			<li>Shout: #{my_shout}</li>
-    			<li>Created At: #{my_created}</li>
-    			</ul>
-    		>>;
-    	}
-    	{
-    		replace_inner("#foursquare", my_html);
-    	}
-    }
 }
