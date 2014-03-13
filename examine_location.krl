@@ -23,9 +23,9 @@ ruleset examine_location {
   			created = my_map{"created_at"} || "na";
   			//venue = my_map{"venue_name"};
   			headerString = <<
-  				venue: #{name}
-  				city: #{city}
-  				shout: #{shout}
+  				venue: #{name} <br />
+  				city: #{city} <br />
+  				shout: #{shout} <br />
   				created at: #{created}
   				
   			>>;
