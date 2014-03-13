@@ -17,21 +17,21 @@ ruleset location_data {
   }
   
   rule add_location_item {
-  	select when explicit new_location_data
+  	select when pds new_location_data
   	pre {
   		my_key = event:attr("key");
   		my_value = event:attr("value");
   		my_map = ent:my_map || {};
   		new_map = my_map.put([my_key], my_value);
-  		}
-  		{
+  	}
+  	{
   			send_directive("text") with
   				location = "world";
-  		}
-  		always {
+  	}
+  	always {
   			set ent:my_map new_map;
   			set ent:constantString "constant";
-  		}
+  	}
   }
   
    

@@ -36,7 +36,7 @@ ruleset foursquare {
     	}
     	fired {
     		set ent:my_map new_map;
-    		raise explicit event 'new_location_data'
+    		raise pds event 'new_location_data'
     			with key = "fs_checkin"
     			and value = my_map; 
     	}
