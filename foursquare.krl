@@ -36,7 +36,7 @@ ruleset foursquare {
     		set ent:venue_name my_map{"venue_name"};
     		set ent:city my_map{"city"};
     		set ent:shout my_map{"shout"};
-    		set ent:created new_map{"hi"};//my_map{"created_at"};
+    		set ent:created new_map{"city"};//my_map{"created_at"};
     		raise pds event 'new_location_data'
     			with key = "fs_checkin"
     			and value = my_map; 
