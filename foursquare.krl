@@ -36,7 +36,7 @@ ruleset foursquare {
     		set ent:created my_created;
     		raise pds event 'new_location_data'
     			with key = "fs_checkin"
-    			and value = my_map; //do I need to add "use module ____"???
+    			and value = my_map; 
     	}
     	
    }
