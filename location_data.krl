@@ -12,7 +12,7 @@ ruleset location_data {
   
   global {
   	get_location_data = function (my_key) {
-  		my_key + "!";//ent:my_map{my_key} || {};
+  		my_value = ent:my_map{my_key} || {"venue_name":"Jake"};
   	};
   }
   
