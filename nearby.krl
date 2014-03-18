@@ -29,16 +29,16 @@ ruleset location_nearby {
 		rlngb = math:deg2rad(lngb);
 	 
 		// distance between two co-ordinates in kilometers
-		dist = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
+		//dist = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
+		dist = 6;
   	}
-  	//if (dist < 8) then {
-  	{
+  	if (dist < 8) then {
   		send_directive("location") with
   				location = my_map;
   	}
   	fired {
   		raise explicit event 'location_nearby'
-    		with distance = "hello"; 
+    		with distance = dist; 
   	} else {
   		raise explicit event 'location_far'
     		with distance = dist; 
