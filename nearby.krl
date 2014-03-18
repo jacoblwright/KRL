@@ -31,7 +31,8 @@ ruleset location_nearby {
 		// distance between two co-ordinates in kilometers
 		dist = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
   	}
-  	if (dist < 8)then {
+  	//if (dist < 8) then {
+  	{
   		send_directive("location") with
   				location = my_map;
   	}
