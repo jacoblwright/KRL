@@ -29,7 +29,8 @@ ruleset location_nearby {
 		rlngb = math:deg2rad(lngb);
 	 
 		// distance between two co-ordinates in kilometers
-		dist = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
+		//dist = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
+		dist = rlata;
   	}
   	if (dist < 8) then {
   	{
