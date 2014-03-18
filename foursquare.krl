@@ -39,11 +39,38 @@ ruleset foursquare {
     			checkin = name;
     	}
     	always {
-    		//set ent:my_map new_map;
+    		set ent:my_map new_map;
     		raise pds event 'new_location_data'
     			with key = "fs_checkin"
     			and value = my_map; 
-    	}
-    	
+    	}	
    }
+	rule foursquare_init is active {
+    	select when web cloudAppSelected
+    	pre {
+    		name = ent:my_map{"venue_name"} || "n/a";
+    		my_city = ent:my_map{"city"} || "n/a";
+			my_shout = ent:my_map{"shout"} || "n/a";
+   			my_created = ent:my_map{"created_at"} || "n/a";
+   			my_long = ent:my_map{"long"};
+   			my_lat = ent:my_map{"lat"};
+       	 my_html = <<
+          <div id=foursquare>
+          	Checkin:
+    		<ul>
+    			<li>Venue name: #{name}</li>
+    			<li>City: #{my_city}</li>
+    			<li>Shout: #{my_shout}</li>
+    			<li>Created At: #{my_created}</li>
+    			<li>Long: #{my_long}</li>
+    			<li>Lat: #{my_lat}</li>
+    		</ul>
+          <div>
+      >>;
+    }
+    {
+      SquareTag:inject_styling();
+      CloudRain:createLoadPanel("Foursquare", {}, my_html);
+    }
+  }
 }
