@@ -32,7 +32,8 @@ ruleset location_nearby {
 		dist = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
   	}
   	if dist < 8
-  		then noop();
+  		then send_directive(my_key) with
+  				location = my_value;
   	fired {
   		raise explicit event 'location_nearby'
     		with distance = dist; 
