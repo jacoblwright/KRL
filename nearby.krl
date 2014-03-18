@@ -32,7 +32,7 @@ ruleset location_nearby {
 		x = r90-rlata;
 		y = r90 - rlatb;
 		d = math:great_circle_distance(rlnga,x, rlngb,y, rEk);
-		dist = y;
+		dist = rlnga;
   	}
   	//if (dist < 8) then {
   	{
