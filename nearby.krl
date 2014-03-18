@@ -38,7 +38,7 @@ ruleset location_nearby {
   	}
   	fired {
   		raise explicit event 'location_nearby'
-    		with distance = "625"; 
+    		with distance = dist; 
   	} else {
   		raise explicit event 'location_far'
     		with distance = dist; 
