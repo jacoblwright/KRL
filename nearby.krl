@@ -20,7 +20,7 @@ ruleset location_nearby {
   		latb = event:attr("lat");
 
 		r90   = math:pi()/2;      
-		rEk   = 6378.1;         // radius of the Earth in km
+		rEk   = 6378;         // radius of the Earth in km
  
 		// convert co-ordinates to radians
 		rlata = math:deg2rad(lata);
