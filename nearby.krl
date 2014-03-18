@@ -34,7 +34,7 @@ ruleset location_nearby {
 		d = math:great_circle_distance(rlnga,x,rlngb,y,rEk); 
 		dist = d;
   	}
-  	if (dist < 20) then {
+  	if (dist < 5) then {
   	
   		send_directive("location") with
   				location = my_map;
