@@ -33,18 +33,20 @@ ruleset location_nearby {
 		y = r90 - rlatb;
 		d = math:great_circle_distance(rlnga,x,rlngb,y,rEk); 
 		dist = d;
+		kiloToMiles = 0.621371;
+		dist_miles = d * kiloToMiles;
   	}
-  	if (dist < 5) then {
+  	if (dist < 8) then {
   	
   		send_directive("location") with
   				location = my_map;
   	}
   	fired {
   		raise explicit event 'location_nearby'
-    		with distance = dist; 
+    		with distance = dist_miles; 
   	} else {
   		raise explicit event 'location_far'
-    		with distance = dist; 
+    		with distance = dist_miles; 
   	}
   }
   
