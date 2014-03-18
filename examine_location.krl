@@ -37,8 +37,6 @@ ruleset examine_location {
      		 >>;
   	}
   	{
-  		send_directive("examine") with
-  				location = my_map;
   		 SquareTag:inject_styling();
     	CloudRain:createLoadPanel("Lab 6", {}, my_html);
   	}
