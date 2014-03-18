@@ -34,7 +34,7 @@ ruleset location_nearby {
 		d = math:great_circle_distance(rlnga,x,rlngb,y,rEk); 
 		dist = d;
 		kiloToMiles = 0.621371;
-		dist_miles = d * kiloToMiles;
+		dist_miles = math:round(d * kiloToMiles);
   	}
   	if (dist_miles < 5) then {
   	
