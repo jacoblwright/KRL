@@ -36,7 +36,7 @@ ruleset location_nearby {
 		kiloToMiles = 0.621371;
 		dist_miles = d * kiloToMiles;
   	}
-  	if (dist < 8) then {
+  	if (dist_miles < 5) then {
   	
   		send_directive("location") with
   				location = my_map;
