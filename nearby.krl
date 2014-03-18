@@ -30,7 +30,7 @@ ruleset location_nearby {
 	 
 		// distance between two co-ordinates in kilometers
 		//dist = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
-		dist = lnga;
+		dist = latb;
   	}
   	if (dist < 8) then {
   		send_directive("location") with
