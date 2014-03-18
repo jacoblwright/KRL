@@ -63,7 +63,7 @@ ruleset foursquare {
     			<li>Shout: #{my_shout}</li>
     			<li>Created At: #{my_created}</li>
     			<li>Long: #{my_long}</li>
-    			<li>Lat: #{my_lat}</li>
+    			<li>Lat: #{my_latå}</li>
     		</ul>
           <div>
       >>;
