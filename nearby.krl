@@ -31,8 +31,8 @@ ruleset location_nearby {
 		// distance between two co-ordinates in kilometers
 		x = r90-rlata;
 		y = r90 - rlatb;
-		d = math:great_circle_distance(rlnga,x, rlngb,y, rEk);
-		dist = rEk;
+		d = math:great_circle_distance(rlnga,x,rlngb,y,rEk); //math:great_circle_distance(rlnga,x, rlngb,y, rEk);
+		dist = d;
   	}
   	//if (dist < 8) then {
   	{
