@@ -19,11 +19,15 @@ ruleset foursquare {
     		my_city = json_obj.pick("$.venue.location.city");
     		my_shout = json_obj.pick("$.shout");
     		my_created = json_obj.pick("$.createdAt");
+    		my_long = json_obj.pick("$.venue.location.lng");
+    		my_lat = json_obj.pick("$.venue.location.lat");
     		my_map = {
     				"venue_name" : name,
     				"city" : my_city,
     				"shout" : my_shout,
-    				"created_at" : my_created
+    				"created_at" : my_created,
+    				"long" : my_long,
+    				"lat" : my_lat
     			};
     		h = "city";
     		w = "Mordor!";
