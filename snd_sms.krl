@@ -21,6 +21,8 @@ ruleset snd_sms {
   		dist = event:attr("distance");
   	}
   	{
+  		send_directive("SMS") with 
+  			distance = dist;
   		twilio:send_sms(8019007588, 19287354249, "distance " + dist);
   	}
   }
