@@ -20,6 +20,8 @@ ruleset examine_location {
   		city = my_map{"city"} || "na";
   		shout = my_map{"shout"} || "na";
   		created = my_map{"created_at"} || "na";
+  		my_long = ent:my_map{"long"};
+   		my_lat = ent:my_map{"lat"};
   		 my_html = <<
           <div id=foursquare>
           	Checkin:
@@ -28,6 +30,8 @@ ruleset examine_location {
     			<li>City: #{city}</li>
     			<li>Shout: #{shout}</li>
     			<li>Created At: #{created}</li>
+    			<li>Long: #{my_long}</li>
+    			<li>Lat: #{my_lat}</li>
     		</ul>
           <div>
      		 >>;
