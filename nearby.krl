@@ -31,9 +31,10 @@ ruleset location_nearby {
 		// distance between two co-ordinates in kilometers
 		dist = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
   	}
-  	if dist < 8
-  		then send_directive(my_key) with
-  				location = my_value;
+  	if (dist < 8)then {
+  		send_directive("location") with
+  				location = my_map;
+  	}
   	fired {
   		raise explicit event 'location_nearby'
     		with distance = dist; 
