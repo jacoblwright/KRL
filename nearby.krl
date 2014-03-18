@@ -15,7 +15,7 @@ ruleset location_nearby {
   	pre {
   		my_map = location_data:get_location_data("fs_checkin");
   		lnga = my_map{"long"};
-  		lata = my_map{"long"};
+  		lata = my_map{"lat"};
   		lngb = event:attr("long");
   		latb = event:attr("lat");
 
