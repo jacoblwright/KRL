@@ -20,7 +20,7 @@ ruleset location {
   rule location_catch {
   	select when location notification
   	 pre {
-  		my_name = event:attr("name");
+  		my_name = event:attr("name") || "test";
   		my_city = event:attr("city");
   		my_shout = event:attr("shout");
   		my_created_at = event:attr("created_at");
