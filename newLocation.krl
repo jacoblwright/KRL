@@ -40,10 +40,10 @@ ruleset location {
   rule location_show is active {
     	select when web cloudAppSelected
     	pre {
-    		name = ent:name || "n/a";
-    		my_city = ent:city || "n/a";
-			my_shout = ent:shout || "n/a";
-   			my_created = ent:created_at || "n/a";
+    		name = "jake";//ent:name || "n/a";
+    		my_city = "provo";//ent:city || "n/a";
+			my_shout = "shout out to heather";//ent:shout || "n/a";
+   			my_created = "1234";//ent:created_at || "n/a";
        	 my_html = <<
           <div id=foursquare>
           	Checkin:
