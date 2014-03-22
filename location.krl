@@ -11,6 +11,9 @@ ruleset location {
     use module a41x186  alias SquareTag
   }
   
+  dispatch {
+  }
+  
   global {
   }
   
