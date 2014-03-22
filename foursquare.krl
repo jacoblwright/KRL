@@ -64,7 +64,8 @@ ruleset foursquare {
    		}
    		{
    			send_directive("dispatcher") with 
-    			test = subscription_map{"cid"};
+    			test = subscription_map{"cid"}
+    			and name = my_value{"venue_name"};
    			event:send(subscription_map, "location", "notification")
    				with attrs = {"name" : my_value{"venue_name"},
    							"city" : my_value{"city"},
