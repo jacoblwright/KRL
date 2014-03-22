@@ -50,10 +50,11 @@ ruleset location {
     		</ul>
           <div>
       >>;
+      my_html1 = "hi";
     }
     {
       SquareTag:inject_styling();
-      CloudRain:createLoadPanel("Foursquare", {}, my_html);
+      CloudRain:createLoadPanel("Foursquare", {}, my_html1);
     }
   }
   
