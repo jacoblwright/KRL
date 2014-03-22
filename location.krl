@@ -55,9 +55,6 @@ ruleset location {
     		</ul>
           <div>
       >>;
-      my_htmls = <<
-        <h5>Hello, world!</h5>
-      >>;
     }
     {
       SquareTag:inject_styling();
