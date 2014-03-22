@@ -10,6 +10,17 @@ ruleset foursquare {
     use module a169x701 alias CloudRain
     use module a41x186  alias SquareTag
   }
+  
+  global {
+  	my_map = 
+  		[{
+  		"cid":"CF3DF8DE-B1CF-11E3-A070-40E2E71C24E1"
+  		},
+  		{
+  		"cid":"BFD9918C-B1CF-11E3-9D50-BB9FD61CF0AC"
+  		}];
+  }
+  
    rule process_fs_checkin {
     	select when foursquare checkin
     	pre {
@@ -44,6 +55,24 @@ ruleset foursquare {
     			with key = "fs_checkin"
     			and value = my_map; 
     	}	
+   }
+   rule dispatcher {
+   		select when pds new_location_data
+   			foreach my_map setting (subscription_map)
+   		pre {
+   			my_value = event:attr("value");
+   		}
+   		{
+   			send_directive("dispatcher") with 
+    			test = subscription_map{"cid"};
+   			event:send(subscription_map, "location", "notification")
+   				with attrs = {"name" : my_value{"venue_name"},
+   							"city" : my_value{"city"},
+   							"shout" : my_value{"shout"},
+   							"created_at" : my_value{"created_at"}
+   							};
+   		}
+   		
    }
 	rule foursquare_init is active {
     	select when web cloudAppSelected
