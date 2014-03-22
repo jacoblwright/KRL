@@ -58,7 +58,7 @@ ruleset location {
     }
     {
       SquareTag:inject_styling();
-      CloudRain:createLoadPanel("Foursquare", {}, my_htmls);
+      CloudRain:createLoadPanel("Foursquare", {}, my_html);
     }
   }
   
