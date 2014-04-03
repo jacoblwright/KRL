@@ -24,7 +24,7 @@ ruleset snd_sms {
   	{
   		send_directive("SMS") with 
   			text_message = message;
-  		twilio:send_sms(toNumber, "9287354249", name + "\n" + message);
+  		twilio:send_sms(toNumber, "9287354249", message);
   	}
   }
   
