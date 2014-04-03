@@ -1,4 +1,3 @@
-
 ruleset user_info {
   meta {
     name "foursquare"
