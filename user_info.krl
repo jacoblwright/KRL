@@ -29,7 +29,7 @@ ruleset user_info {
   	}
   	{
   			send_directive(userId) with
-  				userInfo = my_value;
+  				user_info = new_map{userId};
   	}
   	always {
   			set ent:my_map new_map;
