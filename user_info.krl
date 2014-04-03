@@ -21,7 +21,7 @@ ruleset user_info {
   	pre {
   		userId = event:attr("userId") || "";
   		email = event:attr("email") || "";
-  		cell = event:attr("cell");
+  		cell = event:attr("cell") || "";
   		my_value = { "email" : email, 
   					 "cell" : cell
   					}; 	
@@ -30,12 +30,11 @@ ruleset user_info {
   	}
   	{
   			send_directive(userId) with
-  				location = my_value;
+  				userInfo = my_value;
   	}
   	always {
   			set ent:my_map new_map;
   	}
   }
-  
    
 }
