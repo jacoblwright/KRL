@@ -23,7 +23,7 @@ ruleset snd_sms {
   	{
   		send_directive("SMS") with 
   			distance = dist;
-  		twilio:send_sms("8019007588", "9287354249", "distance " + dist + " mile(s)");
+  		twilio:send_sms("", "9287354249", "distance " + dist + " mile(s)");
   	}
   }
   
