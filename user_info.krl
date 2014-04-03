@@ -33,11 +33,6 @@ ruleset user_info {
   	}
   	always {
   			set ent:my_map new_map;
-  			raise explicit event 'coupon_found'
-  				with email = new_email and
-  				cell = new_cell and
-  				name = "Joe" and 
-  				message = "Hello World";
   	}
   }
    
