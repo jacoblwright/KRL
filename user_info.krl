@@ -17,15 +17,19 @@ ruleset user_info {
   }
   
   rule add_location_item {
-  	select when pds new_location_data
+  	select when coupon user
   	pre {
-  		my_key = event:attr("key");
-  		my_value = event:attr("value");
+  		userId = event:attr("userId") || "";
+  		email = event:attr("email") || "";
+  		cell = event:attr("cell");
+  		my_value = { "email" : email, 
+  					 "cell" : cell
+  					}; 	
   		my_map = {};
-  		new_map = my_map.put([my_key], my_value);
+  		new_map = my_map.put([userId], my_value);
   	}
   	{
-  			send_directive(my_key) with
+  			send_directive(userId) with
   				location = my_value;
   	}
   	always {
