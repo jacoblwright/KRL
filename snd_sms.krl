@@ -1,4 +1,3 @@
-
 ruleset snd_sms {
   meta {
     name "twilio"
