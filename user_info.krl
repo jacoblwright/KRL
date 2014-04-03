@@ -19,10 +19,10 @@ ruleset user_info {
   	select when coupon user
   	pre {
   		userId = event:attr("userId") || "";
-  		email = event:attr("email") || "";
-  		cell = event:attr("cell") || "";
-  		my_value = { "email" : email, 
-  					 "cell" : cell
+  		new_email = event:attr("email") || "";
+  		new_cell = event:attr("cell") || "";
+  		my_value = { "email" : new_email, 
+  					 "cell" : new_cell
   					}; 	
   		my_map = {};
   		new_map = my_map.put([userId], my_value);
@@ -33,6 +33,11 @@ ruleset user_info {
   	}
   	always {
   			set ent:my_map new_map;
+  			raise explicit event 'coupon_found'
+  				with email = new_email and
+  				cell = new_cell and
+  				name = "Joe" and 
+  				message = "Hello World";
   	}
   }
    
