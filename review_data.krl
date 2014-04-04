@@ -33,7 +33,7 @@ ruleset review_data {
   			review = r.pick("$.businesses[0].reviews[0].text_excerpt");
        	 my_html = <<
           <div id=foursquare>
-          	Checkin:
+          	Review:
     		<ul>
     			<li>img_url: #{img_url}</li>
     			<li>review count: #{review_count}</li>
@@ -46,7 +46,7 @@ ruleset review_data {
     }
     {
       SquareTag:inject_styling();
-      CloudRain:createLoadPanel("Foursquare", {}, my_html);
+      CloudRain:createLoadPanel("Review", {}, my_html);
     }
   }
   
