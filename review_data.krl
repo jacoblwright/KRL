@@ -18,7 +18,7 @@ ruleset review_data {
    			"location" : location,
   			"limit" : "1",
    			"ywsid" : "7gH8mdXybsBA0JkbBx47ww"
-   		}).pick("$.businesses[0]").decode();
+   		}).decode();//.pick("$.businesses[0]").decode();
   	};
   }
   
@@ -26,11 +26,11 @@ ruleset review_data {
     	select when web cloudAppSelected
     	pre {
     		r = get_review("panda express", "84606");
-    		img_url = r.pick("$.rating_img_url");
-  			review_count = r.pick("$.review_count");
-  			name = r.pick("$.name");
-  			avg_rating = r.pick("$.avg_rating");
-  			review = r.pick("$.reviews[0].text_excerpt");
+    		img_url = r.pick("$.businesses[0].rating_img_url");
+  			review_count = r.pick("$.businesses[0].review_count");
+  			name = r.pick("$.businesses[0].name");
+  			avg_rating = r.pick("$.businesses[0].avg_rating");
+  			review = r.pick("$.businesses[0].reviews[0].text_excerpt");
        	 my_html = <<
           <div id=foursquare>
           	Checkin:
