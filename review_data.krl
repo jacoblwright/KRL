@@ -25,7 +25,7 @@ ruleset review_data {
     	select when web cloudAppSelected
     	pre {
     		r = get_review("panda express", "84606");
-    		img_url = r.pick("$.businesses[0].rating_img_url");
+    		img_url = r.pick("$.businesses[0].rating_img_url") || "n/a";
   			review_count = r.pick("$.businesses[0].review_count");
   			name = r.pick("$.businesses[0].name");
   			avg_rating = r.pick("$.businesses[0].avg_rating");
