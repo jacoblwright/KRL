@@ -16,7 +16,6 @@ ruleset review_data {
   		http:get("http://api.yelp.com/business_review_search",
   		{ 	"term" : term,
    			"location" : location,
-  			"limit" : "1",
    			"ywsid" : "7gH8mdXybsBA0JkbBx47ww"
    		});//.pick("$.businesses[0]").decode();
   	};
