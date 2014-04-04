@@ -25,11 +25,11 @@ ruleset review_data {
     	select when web cloudAppSelected
     	pre {
     		r = get_review("panda express", "84606");
-    		img_url = r.pick("$.businesses[0].rating_img_url") || "n/a";
-  			review_count = r.pick("$.businesses[0].review_count");
-  			name = r.pick("$.businesses[0].name");
-  			avg_rating = r.pick("$.businesses[0].avg_rating");
-  			review = r.pick("$.businesses[0].reviews[0].text_excerpt");
+    		img_url = r.pick("$.businesses[0].rating_img_url").encode();
+  			review_count = r.pick("$.businesses[0].review_count").encode();
+  			name = r.pick("$.businesses[0].name").encode();
+  			avg_rating = r.pick("$.businesses[0].avg_rating").encode();
+  			review = r.pick("$.businesses[0].reviews[0].text_excerpt").encode();
        	 my_html = <<
           <div id=review>
           	Review:
