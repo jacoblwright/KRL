@@ -36,7 +36,7 @@ ruleset review_data {
           #{r.encode()}
           	Review:
     		<ul>
-    			<li>img_url: #{img_url}</li>
+    			<img border="0" src="#{img_url}" alt="Pulpit rock" width="304" height="228"> 
     			<li>review count: #{review_count}</li>
     			<li>name: #{name}</li>
     			<li>avg rating: #{avg_rating}</li>
