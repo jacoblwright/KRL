@@ -17,14 +17,14 @@ ruleset review_data {
   		{ 	"term" : term,
    			"location" : location,
    			"ywsid" : "7gH8mdXybsBA0JkbBx47ww"
-   		});//.pick("$.businesses[0]").decode();
+   		}).decode();
   	};
   }
   
   rule location_show is active {
     	select when web cloudAppSelected
     	pre {
-    		r = get_review("panda express", "84606").decode();
+    		r = get_review("panda express", "84606");
     		img_url = r.pick("$.businesses[0].rating_img_url") || "n/a";
   			review_count = r.pick("$.businesses[0].review_count");
   			name = r.pick("$.businesses[0].name");
