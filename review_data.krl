@@ -13,7 +13,7 @@ ruleset review_data {
   
   global {
   	get_review = function (term, location) {
-  		r = http:get("http://api.yelp.com/business_review_search",
+  		http:get("http://api.yelp.com/business_review_search",
   		{ 	"term" : term,
    			"location" : location,
   			"limit" : "1",
