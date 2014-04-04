@@ -24,7 +24,7 @@ ruleset review_data {
   rule location_show is active {
     	select when web cloudAppSelected
     	pre {
-    		r = get_review("panda express", "84606");
+    		r = get_review("panda express", "84606").decode();
     		img_url = r.pick("$.businesses[0].rating_img_url") || "n/a";
   			review_count = r.pick("$.businesses[0].review_count");
   			name = r.pick("$.businesses[0].name");
