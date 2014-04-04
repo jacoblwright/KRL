@@ -17,7 +17,7 @@ ruleset review_data {
   		{ 	"term" : term,
    			"location" : location,
    			"ywsid" : "7gH8mdXybsBA0JkbBx47ww"
-   		}).decode();
+   		}).pick("$.business[0]").decode();
   	};
   }
   
