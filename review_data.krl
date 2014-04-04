@@ -31,7 +31,7 @@ ruleset review_data {
   			avg_rating = r.pick("$.businesses[0].avg_rating");
   			review = r.pick("$.businesses[0].reviews[0].text_excerpt");
        	 my_html = <<
-          <div id=foursquare>
+          <div id=review>
           	Review:
     		<ul>
     			<li>img_url: #{img_url}</li>
