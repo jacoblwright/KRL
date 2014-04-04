@@ -33,6 +33,7 @@ ruleset review_data {
   			review = r.pick("$.businesses[0].reviews[0].text_excerpt");
        	 my_html = <<
           <div id=foursquare>
+            #{r}
           	Review:
     		<ul>
     			<li>img_url: #{img_url}</li>
