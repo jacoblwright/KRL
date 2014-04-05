@@ -41,13 +41,14 @@ ruleset review_data {
           <div id=review>
           	Review:
     		<ul>
-    			<li> image url: #{new_map{"img_url"}.encode()}</li>
+    			<li> image url: #{img_url}</li>
     			<li>review count: #{review_count}</li>
     			<li>name: #{name}</li>
     			<li>avg rating: #{avg_rating}</li>
     			<li>review: #{review}</li>
     		</ul>
     		<img src="#{img_url}" alt="pic">
+    		new_map.encode();
           <div>
       >>;
     }
