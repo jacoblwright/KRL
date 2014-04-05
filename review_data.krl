@@ -31,11 +31,17 @@ ruleset review_data {
   			name = r.pick("$.businesses[0].name").encode();
   			avg_rating = r.pick("$.businesses[0].avg_rating").encode();
   			review = r.pick("$.businesses[0].reviews[0].text_excerpt").encode();
+  			new_map = {	"img_url" : img_url,
+    			"review_count" : review_count,
+    			"name" : name,
+    			"avg_rating" : avg_rating,
+    			"review" : review
+    		};
        	 my_html = <<
           <div id=review>
           	Review:
     		<ul>
-    			<li> image url: #{img_url}</li>
+    			<li> image url: #{new_map{"img_url"}}</li>
     			<li>review count: #{review_count}</li>
     			<li>name: #{name}</li>
     			<li>avg rating: #{avg_rating}</li>
