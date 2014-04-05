@@ -48,7 +48,7 @@ ruleset review_data {
     			<li>review: #{review}</li>
     		</ul>
     		<img src="#{img_url}" alt="pic">
-    		new_map.encode();
+    		#{new_map.encode()}
           <div>
       >>;
     }
