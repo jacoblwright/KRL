@@ -33,7 +33,6 @@ ruleset review_data {
   			review = r.pick("$.businesses[0].reviews[0].text_excerpt").encode();
        	 my_html = <<
           <div id=review>
-          #{r.encode()}
           	Review:
     		<ul>
     			<li> image url: #{img_url}</li>
