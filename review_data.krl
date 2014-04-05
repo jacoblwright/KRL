@@ -41,7 +41,7 @@ ruleset review_data {
           <div id=review>
           	Review:
     		<ul>
-    			<li> image url: #{new_map{"img_url"}}</li>
+    			<li> image url: #{new_map{"img_url"}.encode()}</li>
     			<li>review count: #{review_count}</li>
     			<li>name: #{name}</li>
     			<li>avg rating: #{avg_rating}</li>
