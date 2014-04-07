@@ -21,17 +21,17 @@ ruleset snd_sms {
   		//message = event:attr("message") || "";
   		name = event:attr("y1");
   		avg_rating = event:attr("y4");
-  		review = event:attr("y6");
+  		my_review = event:attr("y6");
   		c1 = event:attr("c1");
   		c2 = event:attr("c2");
   		//message = "Review  " + name + " Average rating: " + avg_rating + " " + review + "     " +
   		//		  "Coupon  " + c1 + " " + c2;  		
-  		message = "review " + review;
+  		message = "review " + my_review;
   	}
   	{
   		send_directive("SMS") with 
   			text_message = message;
-  		twilio:send_sms(toNumber, "9287354249", "Hello World");
+  		twilio:send_sms(toNumber, "9287354249", message);
   	}
   }
   
