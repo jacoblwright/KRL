@@ -24,7 +24,7 @@ ruleset user_info {
   		my_value = { "email" : new_email, 
   					 "cell" : new_cell
   					}; 	
-  		my_map = {};
+  		my_map = app:my_map || {};
   		new_map = my_map.put([userId], my_value);
   	}
   	{
