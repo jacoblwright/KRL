@@ -18,8 +18,15 @@ ruleset snd_sms {
   	select when explicit coupon_found
   	pre {
   		toNumber = event:attr("cell") || "";
-  		message = event:attr("message") || "";
-  		name = event:attr("name") || "";
+  		//message = event:attr("message") || "";
+  		name = event:attr("y1");
+  		avg_rating = event:attr("y4");
+  		review = event:attr("y6");
+  		c1 = event:attr("c1");
+  		c2 = event:attr("c2");
+  		c3 = event:attr("c3");
+  		message = "Review  " + name + " Average rating: " + avg_rating + " " + review + "     " +
+  				  "Coupon  " + c1 + " " + c2;  		
   	}
   	{
   		send_directive("SMS") with 
