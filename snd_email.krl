@@ -12,7 +12,7 @@ ruleset snd_email {
   	select when explicit coupon_found
   	pre {
   		email = event:attr("email") || "";
-  		//message = event:attr("message") || "";
+  		message = event:attr("message") || "";
   		subject = event:attr("subject") || "Coupons-N-Reviews";
   		r =	http:get("https://api.sendgrid.com/api/mail.send.json",
   					{ "api_user" : "jacoblwright",
