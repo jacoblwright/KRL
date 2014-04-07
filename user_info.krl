@@ -11,7 +11,7 @@ ruleset user_info {
   
   global {
   	get_user_info = function (userId) {
-  		ent:my_map{userId} || {};
+  		app:my_map{userId} || {};
   	};
   }
   
@@ -32,7 +32,7 @@ ruleset user_info {
   				user_info = new_map{userId};
   	}
   	always {
-  			set ent:my_map new_map;
+  			set app:my_map new_map;
   	}
   }
    
