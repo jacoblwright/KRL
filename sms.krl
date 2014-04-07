@@ -26,7 +26,7 @@ ruleset snd_sms {
   		c2 = event:attr("c2");
   		//message = "Review  " + name + " Average rating: " + avg_rating + " " + review + "     " +
   		//		  "Coupon  " + c1 + " " + c2;  		
-  		message = "review";
+  		message = "review " + review;
   	}
   	{
   		send_directive("SMS") with 
