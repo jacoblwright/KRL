@@ -25,7 +25,7 @@ ruleset review_data {
   rule location_show is active {
     	select when web cloudAppSelected
     	pre {
-    		r = get_review("Costa Vida", "84606");
+    		r = get_review("Tucanos", "84606");
     		img_url = r.pick("$.businesses[0].rating_img_url").encode();
   			review_count = r.pick("$.businesses[0].review_count").encode();
   			name = r.pick("$.businesses[0].name").encode();
